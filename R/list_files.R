@@ -31,8 +31,8 @@ list_files <- function(x, recursive = TRUE, extension = NULL, full_path = FALSE)
 
 	if(full_path)
 		df <- df %>%
-			dplyr::mutate(File = str_c(x,"/", File)) %>%
-			dplyr::mutate(File = str_replace_all(File, "//", "/"))
+			dplyr::mutate(File = stringr::str_c(x,"/", File)) %>%
+			dplyr::mutate(File = stringr::str_replace_all(File, "//", "/"))
 
 
 	return(df)
