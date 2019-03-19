@@ -1,5 +1,4 @@
 
-library(tidyverse)
 
 order_conflicts <- function(fun, df){
 		find(fun) %>%
@@ -30,7 +29,7 @@ conflicts <- functions %>%
 	dplyr::select(-conflicts) %>%
 	tidyr::unnest() %>%
 	dplyr::group_by(value) %>%
-	dplyr::mutate(Row = row_number() - 1) %>%
+	dplyr::mutate(Row = dplyr::row_number() - 1) %>%
 	tidyr::spread(Row, Package) %>%
 	dplyr::rename(fun = value) %>%
 	dplyr::ungroup()
@@ -42,5 +41,4 @@ conflicts
 
 }
 
-conflictr()
 
